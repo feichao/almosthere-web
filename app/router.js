@@ -8,6 +8,7 @@ module.exports = app => {
   const validVersion = app.middleware.validVersion();
 
   router.get('/', controller.home.index);
+  router.get('/version', controller.home.version);
 
   router.post('/api/checkupdate', validVersion, controller.api.checkUpdate);
   router.post('/api/version', validVersion, controller.api.insertVersion);

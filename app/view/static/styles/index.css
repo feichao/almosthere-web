@@ -1,52 +1,12 @@
-html, body {
-  font-size: 16px;
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 0;
-}
-
-img {
-  max-width: 100%;
-}
-
-header, section, footer {
-  box-shadow: 0 0 5px #ccc;
-  padding: 12px 50px;
-}
-
-header {
-  align-items: center;
-  display: flex;
-  padding: 12px 50px;
-}
-
-header > img {
-  max-width: 3.375rem;
-  max-height: 3.375rem;
-}
-
-header > h1 {
-  font-size: 1.25rem;
-  font-weight: normal;
-  margin-left: 1.25rem;
-}
-
-header > h2 {
-  font-size: 1rem;
-  font-weight: lighter;
-  margin-left: 0.625rem;
-}
-
-section, footer {
-  margin-top: 2.5rem;
-}
-
 section > ul {
+  display: flex;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
 }
 
 section > ul > li {
+  flex: 0 0 33.3333%;
   list-style: none;
   position: relative;
 }
@@ -58,14 +18,4 @@ section > ul > li:after {
   position: absolute;
   right: 0;
   top: 0;
-}
-
-@media screen and (max-width: 540px) {
-  html, body {
-    font-size: 12px;
-  }
-
-  header, section, footer {
-    padding: 6px 10px;
-  }
 }
