@@ -28,15 +28,5 @@ module.exports = appInfo => {
     },
   };
 
-  config.mongoose = {
-    client: {
-      url: 'mongodb://127.0.0.1:32771/almosthere',
-      options: {
-        user: 'admin',
-        password: '0YhkEISqojoR',
-      },
-    },
-  };
-
   return config;
 };

@@ -22,7 +22,15 @@ class APIController extends Controller {
     }
   }
   async insertVersion(ctx) {
-    const { version, downloadUrl } = ctx.request.body;
+    const { version, downloadUrl, pwd } = ctx.request.body;
+    if (!pwd || pwd !== this.app.config.pwd) {
+      ctx.body = {
+        code: 400,
+        msg: 'unauthorized',
+      };
+      return;
+    }
+
     if (!downloadUrl || !/^http(s)?:\/\/.+/.test(downloadUrl)) {
       ctx.body = {
         code: 400,
