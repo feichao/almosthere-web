@@ -41,7 +41,7 @@ class APIController extends Controller {
       ctx.logger.error(new Error(exception));
       ctx.body = {
         code: 400,
-        msg: 'error happens',
+        msg: exception || 'error happens',
       };
     }
   }

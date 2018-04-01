@@ -6,7 +6,6 @@ const VersionUtil = require('../utils/version');
 class VersionService extends Service {
   async checkUpdate(version) {
     const versions = await this.app.model.Version.find();
-    console.log(versions);
     if (versions && !versions.length) {
       return null;
     }
@@ -24,6 +23,11 @@ class VersionService extends Service {
     return null;
   }
   async insertVersion(version, downloadUrl) {
+    const versions = await this.app.model.Version.find({ version });
+    if (versions && versions.length > 0) {
+      throw 'version exists';
+    }
+
     const vModel = new this.app.model.Version({
       version, downloadUrl,
       createDate: new Date(),

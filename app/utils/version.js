@@ -6,8 +6,14 @@ const getVersionNum = version => {
   }
 
   const vArr = version.split('.');
-  return vArr[0] * 1000000 + vArr[1] * 1000 + vArr * 1;
+  return vArr[0] * 1000000 + vArr[1] * 1000 + vArr[2] * 1;
 };
+
+const isVersionNum = version => {
+  const vN = +version;
+  return vN >= 0 && vN <= 999;
+};
+
 module.exports = {
   isValid(version) {
     if (typeof version !== 'string' || !version) {
@@ -19,7 +25,7 @@ module.exports = {
       return false;
     }
 
-    if (!+temp[0] >= 0 && !+temp[1] >= 0 && !+temp[2] >= 0) {
+    if (isVersionNum(temp[0]) && isVersionNum(temp[1]) && isVersionNum(temp[2])) {
       return true;
     }
 
