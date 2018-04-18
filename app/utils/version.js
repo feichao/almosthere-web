@@ -32,15 +32,15 @@ module.exports = {
     return false;
   },
   isLater(version1, version2) {
-    return this.sort({ version: version1 }, { version: version2 }) === 1;
+    return this.sort({ version: version1 }, { version: version2 }) === -1;
   },
   sort(vModel1, vModel2) {
     const version1 = getVersionNum(vModel1.version);
     const version2 = getVersionNum(vModel2.version);
 
     if (version1 > version2) {
-      return 1;
+      return -1;
     }
-    return -1;
+    return 1;
   },
 };
