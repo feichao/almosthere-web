@@ -1,21 +1,53 @@
-section > ul {
+.container {
   display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  padding: 0;
 }
 
-section > ul > li {
-  flex: 0 0 33.3333%;
-  list-style: none;
-  position: relative;
+.container > .guide-text,
+.container > .guide-video {
+  margin-right: 2.5rem;
 }
 
-section > ul > li:after {
-  content: attr(data-tip);
-  display: inline-block;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
+.container > .guide-text,
+.container > .guide-video,
+.container > .guide-version {
+  animation: guideAnimation 550ms ease-in-out forwards;
+  border-radius: 16px;
+  box-shadow: 0 0 .5rem 0 rgba(190, 190, 190, 0.6);
+  flex: 0 0 calc((100% - 5rem) / 3);
+  height: 100%;
+  opacity: 0;
+  transform: translateX(170px);
+}
+
+.container > .guide-text {
+  animation-delay: 150;
+}
+.container > .guide-video {
+  align-items: center;
+  animation-delay: 300ms;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.container > .guide-version {
+  animation-delay: 450ms;
+}
+
+.guide-video > video {
+  width: 100%;
+}
+
+@keyframes guideAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(170px);
+  }
+  72% {
+    opacity: 1;
+    transform: translateX(-11px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

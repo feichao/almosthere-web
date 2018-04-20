@@ -1,6 +1,8 @@
 html, body {
   font-size: 16px;
+  height: 100%;
   margin: 0 auto;
+  overflow: hidden;
   padding: 0;
 }
 
@@ -8,15 +10,19 @@ img {
   max-width: 100%;
 }
 
-header, section, footer {
-  box-shadow: 0 0 5px #ccc;
-  padding: 12px 40px;
+header, footer {
+  background: rgba(190, 190, 190, 0.1);
+  margin: 1.25rem;
 }
 
 header {
   align-items: center;
+  animation: headerAnimation 500ms ease-in-out forwards;
   display: flex;
-  padding: 12px 40px;
+  height: 5rem;
+  padding: 0 1.25rem;
+  opacity: 0;
+  transform: translateY(100px);
 }
 
 header > img {
@@ -36,16 +42,25 @@ header > h2 {
   margin-left: 0.625rem;
 }
 
-section, footer {
-  margin-top: 2.5rem;
+section {
+  height: calc(100% - 10rem);
+  margin: 1.25rem;
+}
+
+@keyframes headerAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  72% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media screen and (max-width: 540px) {
-  html, body {
-    font-size: 12px;
-  }
-
-  header, section, footer {
-    padding: 6px 10px;
-  }
 }
